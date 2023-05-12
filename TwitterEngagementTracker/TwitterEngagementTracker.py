@@ -4,7 +4,7 @@ import tweepy
 import json
 
 class TwitterEngagementTracker:
-    def __init__(self, config_file='config.ini', output_file='engagement_scores.json'):
+    def __init__(self, config_file='config.ini.ini', output_file='engagement_scores.json'):
         # Load configuration from config_file
         self.config = configparser.ConfigParser()
         self.config.read(config_file)
@@ -40,7 +40,7 @@ class TwitterEngagementTracker:
         while True:
             engagement_scores = self.calculate_engagement_scores()
             # Append the engagement scores to the JSON file
-            with open(self.output_file, mode='a+') as file:
+            with open(self.output_file, mode='a') as file:
                 json.dump(engagement_scores, file)
                 file.write('\n')  # Add a newline character to separate each JSON object
 
